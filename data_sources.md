@@ -15,7 +15,11 @@ data during this session (2026-11-21), not just a product page read.
 | NREL Annual Technology Baseline (ATB) | §13 item 8 — LCOE by technology | `https://data.openei.org/submissions/8759` (CSV/XLSX/Parquet, OEDI data lake on AWS, CC-licensed public) | Free, federal, versioned by year. Covers every generation technology's CAPEX/OPEX/capacity-factor/LCOE. |
 || LBNL "Queued Up" interconnection queue dataset | §13 item 8 — interconnection cost/timeline per ISO; also corroborates §8.1's L1 lead-time proxy | `https://emp.lbl.gov/queues` (project-level XLSX, CC BY 4.0) | Free, annual edition ("Queued Up 2026" covers through end of 2025). **Primary XLSX bot-blocked (Cloudflare) to both curl and headless browser, 2026-11-21.** County-level derivative of the 2026 edition ingested via Zenodo API — see `data/lbnl_queue_2026_county.csv` and `docs/interconnection-queue-findings.md`. Cost/timeline fields remain open. |
 | CFTC Weekly Swaps Report / NY Fed Corporate Bond Market Distress Index | Capital-event percentile rule background (§5.3), macro credit stress corroboration | `quotelinks.com` free wrapper API, `GET /v1/credit/cds/history`, `/hqm/*` — no key | Market-wide CDS notional/volume only, **no single-name spreads**. Good for the macro base rate in Duncan's DEC-4 critique; not sufficient for member-level K-screen. |
-| BIS Quarterly Review (Mar 2026), "Boom and bust of the recent silver and gold rush" | Episode #2 seed data (Jan–Feb 2026 leveraged-ETF/margin episode) — leverage rebalancing multiplier, ETF premium/discount dynamics, margin-call mechanism | `bis.org/publications/qr-202603/...` | Free, authoritative, already cited in `episodes.json` episode 2. |
+|| USAspending.gov award API | §13 item 8 — transformer/switchgear procurement price points (federal: WAPA, USACE, Navy) | `POST https://api.usaspending.gov/api/v2/search/spending_by_award/` (NAICS 335311/335313, PSC 6120/5925) | No key. Tested live 2026-11-21 — 15+ dated federal awards with specs pulled; award pages return 200. Repeatable series channel. |
+|| FRED `WPU117409` (BLS PPI: power & distribution transformers) | §13 item 8 — transformer price escalator, monthly 1999–present | `fred.stlouisfed.org/graph/fredgraph.csv?id=WPU117409` | No key. Verified live: 2026-10 = 390.436 (base 1999-12=100). The durable free index. |
+|| OSTI (DOE/NLR reports) | §13 item 8 — LPT $/MVA ranges and lead-time statements | `osti.gov` API, e.g. DOI 10.2172/3363379 (2026 LPT supply-chain supplement) | Free. Index + ranges, not a unit-price series. |
+|| City of Tacoma / TPU bid results + board agendas | §13 item 8 — municipal procurement price points incl. unit-priced LPT | `cms.tacoma.gov/Purchasing/`, `mytpu.org/wp-content/uploads/` agenda PDFs | Free, public, recurring. Other munis follow the same pattern (some WAF-blocked from agent hosts but public). |
+|| BIS Quarterly Review (Mar 2026), "Boom and bust of the recent silver and gold rush" | Episode #2 seed data (Jan–Feb 2026 leveraged-ETF/margin episode) — leverage rebalancing multiplier, ETF premium/discount dynamics, margin-call mechanism | `bis.org/publications/qr-202603/...` | Free, authoritative, already cited in `episodes.json` episode 2. |
 
 ## Low-cost, pay-per-call (no enterprise contract) — candidate for Alex's budget call
 
@@ -34,13 +38,18 @@ data during this session (2026-11-21), not just a product page read.
   fraction of the cost; only escalate here if that pass shows the per-call
   spend growing past the subscription breakeven.
 - **Transformer/switchgear pricing data** (named in §13 item 8 alongside
-  LCOE and interconnection cost) — no free public series was found this
-  session. Likely needs either (a) a market-research report purchase
-  (Wood Mackenzie, S&P Global Commodity Insights — one-off report cost,
-  not a subscription), or (b) direct outreach to transformer OEMs/distributors
-  for quote data, which is manual-collection work, not an API. Flagging as
-  open; recommend Gurney's parallel-dispatch pattern be pointed at
-  manufacturer/distributor public pricing pages before paying for a report.
+  LCOE and interconnection cost) — **free-source attempt COMPLETE, verdict
+  PARTIAL-yes** (2026-11-21, Gurney; full record in
+  `docs/transformer-pricing-findings.md`, point data in
+  `data/transformer_price_points.csv`). Free channels anchor a first-pass
+  series: FRED `WPU117409` (monthly PPI escalator, verified live,
+  2026-10 = 390.436), DOE/NLR LPT report ($15–21k/MVA, 2024 USD), and 25+
+  dated procurement price points (USAspending API; Tacoma PUB incl. a
+  unit-priced 500 MVA autotransformer at $7.71M, 2026-01). No free
+  continuous unit-price series for ≥100 MVA LPTs exists (OEMs quote-gated,
+  Wood Mackenzie/NEMA paywalled). **A report purchase is NOT needed for the
+  first pass**; revisit only if the panel later requires a continuous LPT
+  unit-price series.
 
 ## Ingested this session (2026-11-21, by Thufir)
 

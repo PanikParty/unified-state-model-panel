@@ -1,0 +1,27 @@
+date,spec,class,price_usd,price_kind,source_url
+2026-02-20,"GSU transformers, Oahe & Fort Peck Dams (multi-unit, USACE; PAF Electrical)",LPT-GSU,56977893.50,contract_value,https://www.usaspending.gov/award/CONT_AWD_W9128F26CA013_9700_-NONE-_-NONE-
+2025-03-20,"Wolf Creek Powerplant GSU transformer (Yellowstone Electric)",LPT-GSU,30540706.29,contract_value,USAspending API NAICS 335311 query
+2025-06-25,"Transformer for FT2 (DoE/WAPA; G&RK Consulting)",substation,3500000.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_89503425PWA002074_8900_-NONE-_-NONE-
+2023-09-26,"Mobile transformer 115/69/34.5 kV, 40 MVA (WAPA)",substation,925922.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_89503223CWA000089_8900_-NONE-_-NONE-
+2022-09-27,"Groton substation transformer, 3-ph, 115-69 kV, 30/40/50 MVA (WAPA)",substation,654559.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_89503422PWA001488_8900_-NONE-_-NONE-
+2021-09-29,"NDMO mobile substation 115x69-12.47 kV (WAPA)",substation,2000497.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_89503421CWA000054_8900_-NONE-_-NONE-
+2021-09-27,"Sioux City 2 KU1A autotransformer replacement (WAPA)",substation,975000.00,contract_value,USAspending API NAICS 335311 query
+2019-11-21,"Nixa autotransformer #1 replacement (WAPA/SWPA)",substation,667159.00,contract_value,USAspending API NAICS 335311 query
+2019-09-20,"230 kV spare transformer, MNA (USACE; ABB Inc)",substation,1677255.00,contract_value,USAspending API NAICS 335311 query
+2019-07-17,"Transformer supply, Robert S. Kerr Powerhouse (USACE)",substation,4414187.95,contract_value,USAspending API NAICS 335311 query
+2019-07-01,"5 MVA 34.5/24.9 kV station-class transformer, North Cody (WAPA)",substation,323501.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_89503219PWA000166_8900_-NONE-_-NONE-
+2018-09-07,"Two transformers, Denison Powerhouse (USACE)",substation,8389081.00,contract_value,USAspending API NAICS 335311 query
+2018-09-25,"Fort Thompson 2 KU1B autotransformer replacement (WAPA)",substation,1948444.30,contract_value,USAspending API NAICS 335311 query
+2016-09-24,"50 MVA 115/69/12.47 kV transformer, Big George sub (WAPA)",substation,695323.00,contract_value,https://www.usaspending.gov/award/CONT_AWD_DEWA0003482_8900_-NONE-_-NONE-
+2023-11-02,"Replace SPS switchgear with GIS, Bldg 1507 (US Navy; Siemens)",switchgear,14071103.00,contract_value,USAspending API NAICS 335313 query
+2026-01-14,"Autotransformer 230/115 kV, 300/400/500 MVA (Iljin Electrics USA; Tacoma PUB Resolution U-11574)",LPT,7710000.00,unit_price,https://mytpu.org/wp-content/uploads/Agenda-20260114.pdf
+2026-02-11,"Substation power transformers contract increase (Iljin; Tacoma PUB U-11583; projected contract total $13.0M)",substation,3000000.00,contract_value,https://mytpu.org/wp-content/uploads/Agenda-20260211.pdf
+2026-06-10,"1-ph padmount distribution transformers, 3-yr contracts (General Pacific; Anixter; options to $2.0M each)",distribution,1000000.00,contract_value,https://mytpu.org/wp-content/uploads/Agenda-20260610.pdf
+2026-06-10,"115 kV unitized transmission switches (Cleaveland Price; projected $2.0M)",switchgear,685560.87,contract_value,https://mytpu.org/wp-content/uploads/Agenda-20260610.pdf
+2026-10-14,"3-ph padmount distribution transformers, 3-yr (General Pacific)",distribution,5000000.00,contract_value,https://mytpu.org/wp-content/uploads/Agenda-20261014.pdf
+2024-06-11,"3-ph padmounted distribution transformers annual contract; 7 bids, low Eaglerise mineral-oil to Irby ester",distribution,1221448.00,bid_total_low,https://cms.tacoma.gov/Purchasing/FormalBidResults/06-11-2024_PT24-0123F.pdf
+2024-06-04,"1-ph overhead distribution transformers; bids PulseMac low to $2,226,250 high",distribution,318930.07,bid_total_low,https://cms.tacoma.gov/Purchasing/FormalBidResults/06-04-2024_PT24-0111F.pdf
+2024-07-02,"15 kV padmount switchgear; bids Wesco $925,325.30 / General Pacific $942,358 / Irby $943,960 / Scott Mfg $1,717,293",switchgear,925325.30,bid_total_low,https://cms.tacoma.gov/Purchasing/FormalBidResults/07-02-2024_PT24-0117F.pdf
+2025-10-14,"High-voltage circuit breakers; bids Border States $1,379,077 / Carlson $1,507,539",switchgear,1379077.00,bid_total_low,https://cms.tacoma.gov/purchasing/formalbidresults/10-14-2025_RFB_PT25-0125F.pdf
+2020-07-10,"Crescent Substation transformer, surplus sale (Transformer Technologies, winning bid) — USED",used,23950.00,surplus_winning_bid,https://cms.tacoma.gov/Purchasing/InformalBidResults/PT20-0208N_BidTab.pdf
+2026-09-16,"Surplus overhead transformers, lot (T&R Electric, winning bid) — USED",used,14087.50,surplus_winning_bid,https://cms.tacoma.gov/purchasing/informalbidresults/PT26-0204N_BidResults.pdf
