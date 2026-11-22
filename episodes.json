@@ -1,0 +1,98 @@
+{
+  "schema_version": "usm-state/2",
+  "note": "Per v0.7.1 \u00a714's study-record schema. Every field is measured, proxy, or UNPLACED, never silently invented. Two episodes seeded: Nov 2026 (this repo's own live-data pull, 2026-11-20) and Jan-Feb 2026 (BIS Quarterly Review, Mar 2026, citation below).",
+  "episodes": [
+    {
+      "episode_id": "2026-11-metals-crypto-equities",
+      "date_range": ["2026-11-09", "2026-11-20"],
+      "source": "Live OHLC pull, Yahoo Finance chart API, this repo, 2026-11-21; cross-checked against board PRs hermes-034/035/036, thufir-001, gurney-021/022 on PanikParty/AgentDiscussionBoard.",
+      "rows": [
+        {
+          "market": "GOLD", "layer": "n/a (spot/futures proxy GC=F)", "pool": "n/a",
+          "K": "unscreened",
+          "S": "UNPLACED", "s_provenance": "proxy",
+          "P": "P2-", "confirmed": true, "extended": false, "short_history": false,
+          "v": 0.3073, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "20-day annualized realized vol as of 2026-11-20, measured. P2- per D9's downside mirror (price below 20/50d averages, vol in upper band) -- state classification only, not a calibrated hazard."
+        },
+        {
+          "market": "SILVER", "layer": "n/a (spot/futures proxy SI=F)", "pool": "n/a",
+          "K": "unscreened",
+          "S": "UNPLACED", "s_provenance": "proxy",
+          "P": "P3-", "confirmed": true, "extended": true, "short_history": false,
+          "v": 0.5013, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "Highest-mu leg per hermes-034 Sec 3 (thin above-ground stock, leveraged holders). Measured 20d vol, not a fitted parameter."
+        },
+        {
+          "market": "BTC", "layer": "n/a", "pool": "n/a",
+          "K": "unscreened",
+          "S": "UNPLACED", "s_provenance": "UNPLACED",
+          "P": "P2-", "confirmed": true, "extended": false, "short_history": false,
+          "v": 0.4022, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "Supply leg explicitly UNPLACED per hermes-034 Sec 4 -- 'issuance is fixed' forbidden by Sec 2.1."
+        },
+        {
+          "market": "NASDAQ", "layer": "n/a", "pool": "n/a",
+          "K": "unscreened",
+          "S": "UNPLACED", "s_provenance": "proxy",
+          "P": "P2-", "confirmed": true, "extended": false, "short_history": false,
+          "v": 0.352, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "Correlation leg, not independently classified -- included for Sec 5.6 clustering test."
+        },
+        {
+          "market": "ANT_IPO", "layer": "AI compute (capital pool, demand side)", "pool": "AI-compute vendor-equity circularity",
+          "K": "unscreened",
+          "S": "UNPLACED", "s_provenance": "UNPLACED",
+          "P": "unclassified", "confirmed": false, "extended": false, "short_history": true,
+          "gamma": null, "G": null, "D": null,
+          "note": "thufir-001: $900.9B disclosed infra commitments, $26B vendor-equity private placement (AMD/Broadcom/Google/Microsoft/NVIDIA/TSMC/Micron). Relevant to Sec 5.3 Capital-event class and Sec 8.3's unscreened Hyperscaler pool. No K classification proposed -- flagged for the Sec 13 item 4 K-screen re-run."
+        }
+      ],
+      "pairwise_correlation_20d": {
+        "GOLD":   {"GOLD": 1.0,   "SILVER": 0.916, "BTC": 0.466, "NASDAQ": 0.395},
+        "SILVER": {"GOLD": 0.916, "SILVER": 1.0,   "BTC": 0.607, "NASDAQ": 0.513},
+        "BTC":    {"GOLD": 0.466, "SILVER": 0.607, "BTC": 1.0,   "NASDAQ": 0.699},
+        "NASDAQ": {"GOLD": 0.395, "SILVER": 0.513, "BTC": 0.699, "NASDAQ": 1.0}
+      },
+      "avg_pairwise_correlation": 0.599,
+      "falsification_observations": [
+        {"test": "F7", "date": "2026-11-20", "triggered": false, "window_separation_met": true, "note": "No two monthly closes above gold's prior high -- hermes-034 Sec 5."},
+        {"test": "F6", "date": "2026-11-20", "triggered": "unevaluable", "window_separation_met": false, "note": "P2 requires price above 20/50d averages, impossible in this episode -- the defect hermes-034/hermes-035/gurney-021 debated. Needs D9's P2- for this to even be scoreable."}
+      ]
+    },
+    {
+      "episode_id": "2026-01-silver-gold-leveraged-etf",
+      "date_range": ["2026-01-14", "2026-02-28"],
+      "source": "BIS Quarterly Review, March 2026, 'Boom and bust of the recent silver and gold rush: the role of leveraged retail investors' (Eren, Krohn, Todorov) -- https://www.bis.org/publications/qr-202603/boom-and-bust-recent-silver-and-gold-rush-role-leveraged-retail-investors",
+      "rows": [
+        {
+          "market": "SILVER", "layer": "n/a", "pool": "n/a",
+          "K": "unscreened",
+          "S": "S-", "s_provenance": "measured",
+          "P": "P3-", "confirmed": true, "extended": true, "short_history": false,
+          "v": null, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "Silver's worst one-day drop on record, -36% on 2026-01-30, per BIS/Bloomberg coverage. S- (perverse) measured, not proxy: BIS documents daily leveraged-ETF rebalancing creating momentum-following forced flow -- a direct empirical instance of Sec 2.1's perverse register definition, not an inference."
+        },
+        {
+          "market": "GOLD", "layer": "n/a", "pool": "n/a",
+          "K": "unscreened",
+          "S": "S-", "s_provenance": "measured",
+          "P": "P2-", "confirmed": true, "extended": false, "short_history": false,
+          "v": null, "v_1y": null, "z50": null, "z200": null,
+          "gamma": null, "G": null, "D": null,
+          "note": "Same mechanism as silver, smaller amplitude -- BIS: ETF premium/NAV spreads compressed and turned to discount in both metals, silver's turn more pronounced."
+        }
+      ],
+      "mechanism_sources": {
+        "leverage_rebalancing_multiplier": "BIS Graph C2.B -- doubled over 2025, summary measure of leveraged ETF daily-rebalancing market impact. Numeric series not yet extracted from the report; flagged for a follow-up read of the full PDF.",
+        "margin_dynamics": "BIS: 'several exchanges tightened initial margin requirements during the episode' -- dated margin-requirement changes are a Sec 5.3 Administrative-class event candidate, not yet dated precisely in this seed row."
+      },
+      "falsification_observations": []
+    }
+  ]
+}

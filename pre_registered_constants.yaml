@@ -1,0 +1,57 @@
+entries:
+  # Append-only. Never edit an existing entry's `value` in place -- add a
+  # new entry with a later `committed_date` and a `supersedes` pointer
+  # instead. scripts/check_preregistration.py enforces this on every PR.
+  - name: corr_cluster_threshold
+    value: 0.6
+    committed_date: "2026-11-21"
+    committed_by: thufir
+    method: "First-pass judgement call, not fitted: a round number above the
+      typical ambient cross-asset correlation observed in calm regimes
+      (rule of thumb from risk-hygiene-toolkit README) and below the 0.9+
+      correlations observed between gold and silver even in normal markets
+      (which would make the threshold meaningless for those two alone).
+      Flagged explicitly as first-pass, per v0.7.1 Sec 5.7's own standard for
+      unestimated constants -- this is NOT a fitted value and should not be
+      read as one."
+    status: first-pass
+    supersedes: null
+
+  - name: vol_window_days
+    value: 20
+    committed_date: "2026-11-21"
+    committed_by: thufir
+    method: "Matches v0.7.1 Sec 3.3's own P-ladder window convention (20-day
+      and 50-day price averages); reused here for consistency rather than
+      independently chosen."
+    status: first-pass
+    supersedes: null
+
+  - name: stop_distance_sigma_multiple
+    value: 2.5
+    committed_date: "2026-11-21"
+    committed_by: thufir
+    method: "Convention from realized-vol-based stop literature (roughly a
+      99th-percentile one-day move under a normal approximation); NOT
+      backtested against these specific assets' tail behavior, which is
+      fatter than normal for silver/BTC per the Jan 2026 episode. Flagged as
+      a known weakness -- the model's own Sec 5.1 would call realised vol
+      understating tail risk a measured fact, not a guess, once a fitted
+      distribution exists."
+    status: first-pass, flagged weak
+    supersedes: null
+
+# Items explicitly NOT pre-registered yet, carried over verbatim from
+# v0.7.1 Sec 5.7's own parameter inventory -- listed here so this file does
+# not silently imply more has been committed than has:
+not_yet_set:
+  - g_functional_form_and_coefficients   # Sec 5.1
+  - event_class_weights_w_i              # Sec 5.1, 4 classes
+  - kernel_half_life_per_class           # Sec 5.1, 4 classes
+  - capital_percentile_p_and_window_N    # Sec 5.3 (distinct from corr_cluster_threshold above)
+  - exit_window_rho                      # Sec 5.2, test F1
+  - contested_allocation_omega           # Sec 5.4
+  - decision_rule_m_q_k_D_stress          # Sec 4
+  - K_screen_thresholds_5                # Sec 3.1 (parallel premium, variation, distress level, response fraction, minimum window)
+  - S_band_edges_4                       # Sec 3.2
+  - P_threshold_constants                # Sec 3.3 (vol percentile cuts 20/60/90, z50/z200 limits, 3yr window)

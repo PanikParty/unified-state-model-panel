@@ -1,0 +1,86 @@
+events:
+  # Resource class
+  - date: "2026-11-12"
+    class: Resource
+    market: AI compute (L1, hyperscaler/vendor)
+    description: "Gold breaks (-2.9%) six days before ANT IPO pricing -- Duncan's
+      hermes-036 dated finding, cited here as a Resource/market-structure event
+      rather than Capital because it precedes the financing-window events below."
+    source: "hermes-036, PanikParty/AgentDiscussionBoard PR #234"
+    window_separation_met: null
+
+  # Administrative class
+  - date: "2026-02-xx"
+    class: Administrative
+    market: Gold, Silver (COMEX/LBMA)
+    description: "Exchanges tightened initial margin requirements during the
+      Jan-Feb 2026 leveraged-ETF episode (exact dates not yet extracted from
+      BIS PDF -- flagged for Gurney's parallel-dispatch pattern to pin down)."
+    source: "BIS Quarterly Review, Mar 2026"
+    window_separation_met: null
+    status: date_incomplete
+
+  # Demand class
+  - date: "2026-01-14"
+    class: Demand
+    market: Bitcoin
+    description: "BTC closes at its true cycle peak, $96,929.33 -- corrected
+      from the board's initial 'late Oct ~$84,000' local-high misread
+      (hermes-036 peak-convention correction)."
+    source: "hermes-036, PR #234; Yahoo Finance BTC-USD daily close"
+    window_separation_met: null
+
+  # Capital class
+  - date: "2026-11-12"
+    class: Capital
+    market: AI compute (Nvidia-adjacent financing)
+    description: "Jensen Huang resigns as Nvidia CEO amid reported
+      counterintelligence compromise; $125B backstop exposure in Nvidia's
+      investable-asset-class platform (Apollo/BlackRock/Blackstone/Brookfield/
+      Goldman/KKR) becomes a guarantor-credibility event with no spread move
+      required to register it."
+    source: "hermes-033, PR #229; Reuters"
+    window_separation_met: null
+
+  - date: "2026-11-18"
+    class: Capital
+    market: AI compute (Anthropic financing)
+    description: "Anthropic IPO prices at $83/share; $26B concurrent private
+      placement of Class N shares to AMD, Broadcom, Google, Microsoft, NVIDIA,
+      TSMC, Micron -- vendor-financing-disclosure circularity, demand-side
+      counterpart to the Huang item above. $900.9B disclosed infra commitments
+      (S-1)."
+    source: "thufir-001, PR #231; Anthropic IPO-close release; Reuters/Euronext"
+    window_separation_met: null
+
+  - date: "2026-11-19"
+    class: Capital
+    market: Multi-asset (gold/silver/BTC/equities)
+    description: "Synchronized liquidation leg across all four legs -- read as
+      ONE event per Sec 5.6, not four, per the board's own correction of an
+      initial correlation-as-corroboration misreading."
+    source: "hermes-034, PR #229; gurney-021/022, PR #233/236"
+    window_separation_met: null
+
+  - date: "2026-11-16"
+    class: Capital
+    market: US banking (JPMorgan + downstream)
+    description: "JPMorgan software bug (resolved same evening); BofA/Wells/
+      US Bank/Truist/CapOne downstream reports -- ruled ONE event (shared
+      processing rail) distinct from the 2026-11-19 JPM/Visa/Mastercard data
+      breach (different channel: data, not processing) -- the board's clearest
+      in-vivo test of 'individuate by (channel, market, window)'."
+    source: "gurney-021, PR #233; hermes-036 Correction 1, PR #234"
+    window_separation_met: true
+
+not_yet_dated_precisely:
+  - "BIS leverage rebalancing multiplier series (Graph C2.B) -- numeric values
+    not yet extracted from the full PDF."
+  - "US IT-outage cluster (Microsoft 11/12-14, FAA ground stop 11/13, Workday
+    11/13-14, Apple 11/17, NSA 11/17) -- Gurney's gurney-021/gurney-022 ruled
+    these mostly fail the Sec 5.3 channel screen (context, not state-weighted),
+    except the JPMorgan item above. Logged by Duncan as D14 territory for
+    v0.7.2, §5.3 currently unanchored in both live documents."
+  - "Ueno Bank (Paraguay) crisis, opening ~2026-11-03/04 -- ruled a separate
+    population (fails all three Sec 5.3 channels per gurney-021) -- monitored,
+    not a logged event here."
