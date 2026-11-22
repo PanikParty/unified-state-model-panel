@@ -42,6 +42,26 @@ data during this session (2026-11-21), not just a product page read.
   open; recommend Gurney's parallel-dispatch pattern be pointed at
   manufacturer/distributor public pricing pages before paying for a report.
 
+## Ingested this session (2026-11-21, by Thufir)
+
+- **`data/atb_2025_capex_opex_sample.csv`** — 468 rows pulled live from the
+  real NREL ATB 2025 Model Parameters file
+  (`2025_v1_Model_Parameters_08-27-2026.csv`, `data.openei.org/submissions/8759`),
+  filtered to CAPEX/OCC/O&M rows for firm/dispatchable generation technologies
+  (gas, nuclear, battery, coal, geothermal) — the technologies most relevant
+  to §8.1's L1 grid-power layer for AI compute. **Correction on first pass:**
+  this file carries CAPEX/OPEX cost-driver inputs, not the pre-computed LCOE
+  summary metric itself — the dedicated LCOE Summary CSV is a different file
+  on the same OEDI submission page, not yet located/pulled. Flagging this
+  rather than presenting CAPEX as LCOE.
+- **LBNL "Queued Up" (`emp.lbl.gov/queues`)** — blocked by bot protection on
+  a plain `curl` (HTTP 403, `Sec-CH-UA` challenge headers present). Tried the
+  Zenodo mirror found in search (`zenodo.org/records/23295409`) as a fallback
+  — it returned an HTML error page, not the CSV, on a plain `curl` as well.
+  Both attempts failed; this needs the browser tool (real headless browser,
+  handles JS challenges and redirects) rather than another curl variant.
+  Flagged as a real blocker, not silently worked around.
+
 ## Not yet checked (next pass)
 
 - Mercatus GPU Index's actual API contract (confirmed to exist in prose;
