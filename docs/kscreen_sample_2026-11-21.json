@@ -1,0 +1,62 @@
+{
+  "n_records": 5,
+  "issuers": [
+    {
+      "issuer": "HEINEKEN N.V.",
+      "n": 1,
+      "notional": 4534500.0,
+      "spreads_bps": [],
+      "notes": [
+        "no spread and no upfront"
+      ],
+      "notional_weighted_bps": null
+    },
+    {
+      "issuer": "COMPASS GROUP PLC",
+      "n": 1,
+      "notional": 3000000.0,
+      "spreads_bps": [],
+      "notes": [
+        "no spread and no upfront"
+      ],
+      "notional_weighted_bps": null
+    },
+    {
+      "issuer": "UNISYS CORPORATION",
+      "n": 1,
+      "notional": 2000000.0,
+      "spreads_bps": [],
+      "notes": [
+        "upfront-only record (no reported spread); needs a par-curve solve"
+      ],
+      "notional_weighted_bps": null
+    },
+    {
+      "issuer": "EXPERIAN FINANCE PLC",
+      "n": 1,
+      "notional": 2000000.0,
+      "spreads_bps": [],
+      "notes": [
+        "no spread and no upfront"
+      ],
+      "notional_weighted_bps": null
+    },
+    {
+      "issuer": "Sabre Holdings Corporation",
+      "n": 1,
+      "notional": 1000000.0,
+      "spreads_bps": [],
+      "notes": [
+        "spreadNotation='3' unconfirmed; raw reportedSpread=0.000582"
+      ],
+      "notional_weighted_bps": null
+    }
+  ],
+  "unparsed": 5,
+  "provenance": {
+    "mode": "sample",
+    "url": "https://api.gloom.sh/v1/datasets/cds/sample",
+    "cost": "free"
+  },
+  "units_rule": "spreads emitted only for confirmed spreadNotation codes; CONFIRMED_NOTATION is empty, so expect UNPARSED today"
+}
