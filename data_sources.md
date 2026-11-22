@@ -84,6 +84,23 @@ data during this session (2026-11-21), not just a product page read.
   transformer-pricing free-source hunt runs as a separate dispatched work
   package; findings land as their own PR.
 
+## Ingested 2026-11-21 (third pass, by Gurney — item 1)
+
+- **DLR quarterly renewal panel** (Q1-2024 → Q3-2026, 11 quarters) — cash/GAAP
+  releasing spreads, renewal volumes, retention (through Q4-25) and churn (all
+  quarters), segment detail (0-1 MW / >1 MW), rent levels ($206→$230/kW in
+  Q3-26) — all from DLR 8-K EX-99.1 supplements on EDGAR, accessions tabled in
+  `docs/renewal-margin-findings.md`. The (price change, renew/walk outcome)
+  pairing is constructible: ~22 segment-quarter observations.
+- **Hyperscaler not-yet-commenced lease commitments** (demand-shifter
+  controls): MSFT $364.6B, Alphabet $130.5B, Meta ~$355.7B (10-Qs, Oct 2026).
+- **Negative results, recorded:** EQIX discloses no releasing spread or churn
+  series (checked Q2-24 → Q3-26 PRs); CBRE/JLL market-rent series are
+  Cloudflare/paywall-blocked — the missing market-rent instrument is the
+  binding gap on a structural η_d, stated in the findings doc.
+- Verdict: **reduced-form evidence yes; structural η_d no** — do not claim the
+  latter without a market-rent benchmark. Full reasoning in the findings doc.
+
 ## Not yet checked (next pass)
 
 - Mercatus GPU Index's actual API contract (confirmed to exist in prose;
