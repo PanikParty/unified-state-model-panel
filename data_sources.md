@@ -13,7 +13,7 @@ data during this session (2026-11-21), not just a product page read.
 | U.S. Treasury daily par yield curve | Same as above, primary source for CMT | `https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all` | No key. |
 | Mercatus GPU Index | §8's L2b/L3 pricing evidence (H100/H200/B200 rental, 50+ providers, 5-min refresh, public methodology) | `https://www.mercatus-ai.com/gpu-index` (scrape or watch for a documented API — methodology page says "API integrations"; confirm a machine-readable endpoint before building a scraper) | Free, no signup, methodology public. Directly extends §8.6's single H100 data point into a continuous series. |
 | NREL Annual Technology Baseline (ATB) | §13 item 8 — LCOE by technology | `https://data.openei.org/submissions/8759` (CSV/XLSX/Parquet, OEDI data lake on AWS, CC-licensed public) | Free, federal, versioned by year. Covers every generation technology's CAPEX/OPEX/capacity-factor/LCOE. |
-| LBNL "Queued Up" interconnection queue dataset | §13 item 8 — interconnection cost/timeline per ISO; also corroborates §8.1's L1 lead-time proxy | `https://emp.lbl.gov/queues` (project-level XLSX, CC BY 4.0, >50 ISOs/RTOs/balancing areas, ~98% of US generating capacity) | Free, annual edition ("Queued Up 2026" covers through end of 2025), attribution required. `interconnection.fyi` (same publisher, GridTracker) gives a free daily-updated browse layer; full export/API is a paid GridTracker subscription — see below. |
+|| LBNL "Queued Up" interconnection queue dataset | §13 item 8 — interconnection cost/timeline per ISO; also corroborates §8.1's L1 lead-time proxy | `https://emp.lbl.gov/queues` (project-level XLSX, CC BY 4.0) | Free, annual edition ("Queued Up 2026" covers through end of 2025). **Primary XLSX bot-blocked (Cloudflare) to both curl and headless browser, 2026-11-21.** County-level derivative of the 2026 edition ingested via Zenodo API — see `data/lbnl_queue_2026_county.csv` and `docs/interconnection-queue-findings.md`. Cost/timeline fields remain open. |
 | CFTC Weekly Swaps Report / NY Fed Corporate Bond Market Distress Index | Capital-event percentile rule background (§5.3), macro credit stress corroboration | `quotelinks.com` free wrapper API, `GET /v1/credit/cds/history`, `/hqm/*` — no key | Market-wide CDS notional/volume only, **no single-name spreads**. Good for the macro base rate in Duncan's DEC-4 critique; not sufficient for member-level K-screen. |
 | BIS Quarterly Review (Mar 2026), "Boom and bust of the recent silver and gold rush" | Episode #2 seed data (Jan–Feb 2026 leveraged-ETF/margin episode) — leverage rebalancing multiplier, ETF premium/discount dynamics, margin-call mechanism | `bis.org/publications/qr-202603/...` | Free, authoritative, already cited in `episodes.json` episode 2. |
 
@@ -61,6 +61,18 @@ data during this session (2026-11-21), not just a product page read.
   Both attempts failed; this needs the browser tool (real headless browser,
   handles JS challenges and redirects) rather than another curl variant.
   Flagged as a real blocker, not silently worked around.
+
+## Ingested 2026-11-21 (second pass, by Gurney)
+
+- **`data/lbnl_queue_2026_county.csv`** (+ `.meta.json`) — LBNL "Queued Up"
+  2026 edition, county-summed, retrieved via Zenodo record `23295409`'s API
+  file endpoint after the primary domain hard-blocked both curl (Thufir) and
+  a real headless browser (this session, Cloudflare Ray ID logged). Full
+  provenance, coverage caveats (no AK/HI/CT), computed national totals
+  (~1.73 TW active across 8,407 projects), and the residual cost/timeline
+  gap are documented in `docs/interconnection-queue-findings.md`. The
+  transformer-pricing free-source hunt runs as a separate dispatched work
+  package; findings land as their own PR.
 
 ## Not yet checked (next pass)
 
