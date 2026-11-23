@@ -54,7 +54,12 @@ def records(payload):
         for k in ("data", "records", "results", "curves"):
             if isinstance(payload.get(k), list):
                 return payload[k]
-    return payload if isinstance(payload, list) else []
+    if isinstance(payload, list):
+        return payload
+    if isinstance(payload, dict) and any(
+            k in payload for k in ("spreadBp", "spread_bp", "reportedSpread", "issuer", "issuerName")):
+        return [payload]
+    return []
 
 
 def classify(r):
@@ -131,9 +136,33 @@ def main():
     ap.add_argument("--max-spend", type=float, default=0.0,
                     help="USD ceiling for the whole run; refuses to exceed it")
     ap.add_argument("--dry-run", action="store_true", help="print the call plan, spend nothing")
+    ap.add_argument("--from-json", help="directory/glob of JSON responses already paid for "
+                                        "(e.g. collected on the x402 host); summarised with no spend")
     ap.add_argument("--out")
     a = ap.parse_args()
 
+    if a.from_json:
+        import glob as _glob
+        files = sorted(_glob.glob(os.path.join(a.from_json, "*.json")) or _glob.glob(a.from_json))
+        if not files:
+            sys.exit(f"no JSON files matched {a.from_json!r}")
+        agg = {"n_records": 0, "n_unparsed": 0, "issuers": [],
+               "provenance": {"mode": "from-json", "files": files, "cost_usd": 0.0}}
+        for f in files:
+            try:
+                s_ = summarise(records(json.load(open(f))))
+            except Exception as exc:                     # noqa: BLE001
+                agg["issuers"].append({"file": f, "error": str(exc)})
+                continue
+            agg["n_records"] += s_["n_records"]
+            agg["n_unparsed"] += s_["n_unparsed"]
+            agg["issuers"].extend(s_["issuers"])
+        js = json.dumps(agg, indent=2, default=str)
+        if a.out:
+            open(a.out, "w").write(js + "\n")
+            print(f"wrote {a.out}")
+        print(js)
+        return
     if a.sample:
         payload = fetch(SAMPLE_URL)
         s = summarise(records(payload))
