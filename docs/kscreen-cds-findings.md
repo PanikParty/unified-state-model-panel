@@ -84,3 +84,32 @@ it, this script's live mode exits rather than guessing, by design.
 where the units are confirmed. On the sample that is **0 of 5 emitted, 5
 flagged** — the correct result when the units are not established, and the
 evidence for §2 above.
+
+## 7. v2 — curves route wired, issuer list pre-registered, spend guarded
+
+**`spreadBp` closes the notation problem.** The x402 402-block schema extension
+(verified by Gurney 2026-11-23) documents that `/v1/cds/curves` returns
+`spreadBp` — **basis points directly**. The parser now emits it with no
+conversion table, because there is nothing to convert. `CONFIRMED_NOTATION`
+stays empty and the trades route still refuses, since its notation remains
+undocumented.
+
+**Issuer list is pre-registered**: `data/kscreen_issuers.yaml`, 12 names, dated
+2026-11-23 *before any data was purchased*, with the selection rule stated in
+the file so it cannot be revised after seeing spreads. Names that return nothing
+are recorded as NO COVERAGE and are **not** substituted with near-names.
+
+**Spend is guarded**: `--max-spend` refuses a run whose estimated cost exceeds
+the ceiling, and `--dry-run` prints the exact call plan for zero cost.
+
+```
+python3 scripts/kscreen_cds.py --live --issuers data/kscreen_issuers.yaml \
+        --max-spend 2.00 --dry-run
+plan: 12 issuers via curves route, est $1.44
+```
+
+**Division of labour.** The x402 wallet lives on blknode with the client in
+`tools/x402/` (PR #6). Moving the key to another host to satisfy a filing
+convention would be the wrong trade, so the paid calls run there and the JSON
+comes back here for analysis. This script's key mode is for whoever holds a
+`GLOOM_KEY`; the x402 lane needs no key at all.
