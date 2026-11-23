@@ -1,0 +1,35 @@
+# K-screen issuer list — PRE-REGISTERED 2026-11-23, before any CDS data was purchased.
+#
+# Selection rule (stated so the list cannot be revised after seeing spreads):
+# every member of the AI-compute pool that (a) appears in the model's §8
+# application layer list, and (b) is a corporate entity with a listed debt
+# complex, i.e. a name a single-name CDS market plausibly covers. That is
+# hyperscaler landlords, GPU neoclouds, and the data-centre REITs that lease to
+# them. Ordered by role in the chain, not by any expectation about spreads.
+#
+# Spend: 12 names x $0.12/call = $1.44 for one curve pull each. The guard in
+# kscreen_cds.py refuses to exceed --max-spend.
+#
+# If a name returns nothing on the curves route, it is recorded as NO COVERAGE
+# and is NOT substituted with a near-name. Substituting after the fact is how a
+# sample becomes a selection.
+
+# --- hyperscaler landlords (the capital sources) ---
+- "Oracle Corp"
+- "Microsoft Corp"
+- "Amazon.com Inc"
+- "Meta Platforms Inc"
+- "Alphabet Inc"
+
+# --- silicon / systems (the supply side of the loop) ---
+- "NVIDIA Corp"
+- "Broadcom Inc"
+
+# --- neoclouds (the partly-capitalised fringe) ---
+- "CoreWeave Inc"
+- "IREN Ltd"
+- "Applied Digital Corp"
+- "TeraWulf Inc"
+
+# --- colocation REITs (the layer Gurney's item-1 series comes from) ---
+- "Digital Realty Trust LP"
