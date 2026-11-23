@@ -19,7 +19,18 @@ never a main wallet — at `/root/.gloom-x402-key` (mode 600), or point
 ```
 node x402_fetch.mjs <url>             # paid call (signs + settles USDC on Base)
 node x402_fetch.mjs <url> --dry-run   # prints the 402 payment terms; zero spend
+node run_pass_a.mjs                   # the pre-registered 12-issuer pass A batch
 ```
+
+Output contract: **stdout = the API body, raw** (redirect straight into
+`cds_raw/*.json` — `kscreen_cds.py --from-json` reads those files as-is);
+**stderr = the provenance envelope** (status, `PAYMENT-RESPONSE` on-chain
+receipt, timestamp). Non-2xx exits 1 with the error on stderr and nothing on
+stdout, so error bodies never contaminate the parse pipeline.
+`run_pass_a.mjs` hard-caps at the 12 pre-registered issuers
+(`data/kscreen_issuers.yaml`), writes `cds_raw/{NN-issuer.json,
+receipts.ndjson, manifest.json}`, and records empty responses as
+NO COVERAGE without substitution.
 
 Semantics that matter (from the docs): only successful answers settle — an
 error or an empty batch charges nothing; one signed payment pays for exactly
