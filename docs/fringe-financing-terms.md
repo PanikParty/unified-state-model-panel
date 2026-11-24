@@ -22,8 +22,14 @@ that observable: they are dated, priced, and public.
 
 **+325 bp of spread widening in CoreWeave's own secured borrowing terms across
 six months of 2026** — the private-credit variation read for the fringe,
-leading and consistent with the CDS tape's +499 bp on the active tenor by
-November. Caveat, stated rather than smoothed over: secured DDTL margins are
+**directionally consistent** with the CDS tape's +499 bp on the active tenor by
+November. Correction (per `kscreen-classification-2026-11-24.md` addendum §2):
+the two windows do not overlap — facilities run March–August, the CDS window
+runs 2026-09-21 → 11-24 — so **no lead/lag ordering is established**; an
+earlier version of this paragraph implied precedence, which the data cannot
+support. Testing precedence needs a CDS window covering March–August (a pass-B
+extension), not a re-reading of this table. Caveat, stated rather than smoothed
+over: secured DDTL margins are
 not par CDS spreads — levels are not comparable across the two instruments;
 **changes** are the informative quantity. DDTL 4.0 also requires ≥95%
 rate-hedging post-commitment — a covenant-term data point the CDS tape does
