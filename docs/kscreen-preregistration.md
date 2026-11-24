@@ -85,3 +85,48 @@ Raw paid payloads stay on the host that bought them. The derived summary
 (`--from-json` output: per-issuer min/max/mean bp, tenor, observation date) is
 committed to this repo through git, which both hosts already share — no key
 movement, no file drop, and the summary is versioned and auditable.
+
+---
+
+## 7. Amendment A1 — 2026-11-24, before any paid call
+
+**Funding state:** the burner holds **$1.00**. Pass A costs **$1.44**. No call has
+been made, so nothing here is a post-hoc revision.
+
+### 7.1 Pass B is not funded now, by the rule in §3
+
+§3 gates pass B on pass A's coverage result ("if fewer than three issuers return
+a spread… pass B is not worth the spend"). Committing pass B's money before
+seeing pass A contradicts that gate. **The correct ask is therefore $0.44, not
+$2.88** — enough to complete pass A and no more. Pass B is decided on evidence.
+
+### 7.2 Truncation is refused
+
+Running 8 of 12 names to fit $1.00 would make a selection under financial
+constraint, and every candidate drop criterion is biased:
+
+- dropping by *likely index-only coverage* keeps the mega-caps and removes the
+  neoclouds, which are the partly-capitalised fringe the screen exists to detect;
+- dropping by *least liquid* does the same thing more explicitly.
+
+**If $1.00 is a hard ceiling**, the only honest form is: run 8, and record the 4
+unrun as **NOT RUN** — never as NO COVERAGE. Unrun is not uncovered, and a
+coverage map that conflates them is false. The four would be fixed in advance and
+the pool's status would remain `unscreened` pending pass A′.
+
+### 7.3 Pass B window fixed in advance
+
+**`days = 180`**, anchored to the run date, chosen to span one AI-capex cost
+cycle. It is fixed here so it cannot be chosen after seeing the slope.
+
+**Response shape unknown, therefore pass B's call count stays open.** If the
+route returns a series over `days`, one call per issuer (12 calls, $1.44). If it
+returns a single point per `asOf`, the variation test needs two calls per issuer
+(24 calls, $2.88). Pass A's payload settles which, and pass B is budgeted only
+then.
+
+### 7.4 What this amendment does not change
+
+The 12-name list, the selection rule, the no-substitution rule, the thresholds
+(150 bp variation, 1,000 bp access, two-quarter response) and the output→status
+mapping all stand as filed on 2026-11-23.
