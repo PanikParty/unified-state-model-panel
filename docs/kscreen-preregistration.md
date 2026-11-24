@@ -130,3 +130,46 @@ then.
 The 12-name list, the selection rule, the no-substitution rule, the thresholds
 (150 bp variation, 1,000 bp access, two-quarter response) and the output→status
 mapping all stand as filed on 2026-11-23.
+
+---
+
+## 8. Amendment A2 — 2026-11-24, response-test fraction registered
+
+**Filed before any post-rise commitment data exists.** Q4-2026 filings land early
+2027; nothing in the current record can be scored against this number.
+
+### 8.1 The gap being closed
+
+§2 said the response test was data-blocked ("needs new-commitment flows over ≥2
+quarters"). That was incomplete. D11 test 4 asks whether new commitments fell by
+"at least a **pre-registered fraction**" and **no fraction was ever registered**,
+so the test was inapplicable on definition as well as on data. The omission is
+mine, recorded here rather than quietly patched.
+
+### 8.2 The registered fraction
+
+**A fall of ≥ 10%**, measured as the change in *newly signed capacity* plus
+*capital-expenditure guidance for future periods*, quarter-over-quarter, in the
+**first two quarters that begin after the cost rise**.
+
+- **Reference date for the rise:** 2026-08-14 (DDTL 5.5 at Term SOFR + 5.50%,
+  the third and largest step in CoreWeave's facility march).
+- **First scored window:** the two quarters ending 2027-06-30, from Q4-2026 and
+  Q1-2027 filings.
+- **First pass, uncalibrated.** Ten percent is chosen as a detectable change that
+  is larger than the quarter-to-quarter noise visible in the item-5 panel; it is
+  not derived, and it is recorded as such.
+
+### 8.3 Outcomes
+
+| Observation | Status |
+|---|---|
+| New commitments fall ≥10% | **K1** for that window and cost range |
+| New commitments flat or up | **K2-observed (window, cost range)** |
+| Commitments cannot be isolated | **unscreened** — and the report must say which input failed |
+
+### 8.4 What is still inadmissible
+
+RPO, backlog and debt outstanding remain stocks of past commitments and are **not
+evidence either way** (D11). A rising RPO beside a rising spread is a hypothesis
+about insensitivity, not a measurement of it. The test reads *flows*.
