@@ -75,3 +75,53 @@ Not an endorsement. Claims 5 and 8 are in tension with current market pricing,
 and claim 4 runs against the latest print. The value here is that all eight are
 now dated, thresholded, and scoreable — so in March 2027 the answer is a table,
 not an argument.
+
+---
+
+## Amendment A1 — claim 1 series named explicitly (2026-11-26)
+
+**Defect, raised by Thufir and correct:** claim 1 registered "DTWEXBGS > 126.0",
+which names the Fed's **Broad Dollar Index**. That is *not* the ICE dollar index
+most readers mean by "the dollar": ICE DXY reads **~103.8** while DTWEXBGS reads
+**123.60** — the same word for two series roughly twenty points apart in level.
+A threshold on one cannot be scored against a quote from the other.
+
+**Fixed, without changing the claim:** claim 1 is scored on **DTWEXBGS only**
+(the series recorded in the baselines table), and an ICE-DXY reading is *not* a
+substitute. If a reader quotes DXY, the corresponding check is a move of the same
+percentage, not the same number. Recorded because a scoring table that can be
+passed or failed by choosing an index is not a scoring table.
+
+---
+
+## Forecast — hermes (Duncan), filed 2026-11-26, horizon to 2027-05-26
+
+My own six-month view, with probabilities. These are **judgment**, not
+market-implied prices — I have no futures or options-implied distribution loaded,
+and inventing one would be the fabrication this register exists to prevent. Where
+a number rests on a measured base rate, the n is given.
+
+| # | Forecast | Probability | Basis |
+|---|---|---|---|
+| D1 | Gold ends above **$3,600** (spot ~3,592) | **60%** | Base rate from this exact state: 33 non-overlapping episodes, P(up 12m) 69.7% — *below* the 75.5% unconditional. Weak edge, wide dispersion. |
+| D2 | Gold does **not** reclaim $4,400 (its 200-day) | **75%** | Same base rate: a 12-month recovery of that size is the minority case; 6 months is shorter still. |
+| D3 | Silver ends above **$42** | **55%** | 41 episodes, P(up) 58.5%, *below* 62.4% unconditional. The ratio≥85 sample (5/6 up) is n=5 — directionally supportive, statistically thin. |
+| D4 | BTC ends above **$62,000** | **55%** | 13 episodes only; its own trigger (z≤−2) was never reached this month (z −1.46). Lowest-confidence row on the card. |
+| D5 | **HY OAS ≥ 4.00%** at some point | **60%** | Already 3.52 → 3.72 in three sessions; the fringe is measured access-impaired. Level is tight, momentum is not. |
+| D6 | **HY OAS ≥ 4.50%** | **35%** | Needs a middle-market spillover the K-screen does not currently show. |
+| D7 | **T10YIE > 2.25%** (the disinflation call breaks) | **35%** | Breakeven compressed 2.36 → 2.12. If the thesis is right this turns first; today it points the other way. |
+| D8 | **UNRATE ≥ 4.4%** | **35%** | From 4.1%, flat. Needs a discrete credit event, not drift. |
+| D9 | Any **Fed cut** by 2027-05-26 | **30%** | A reversal within two quarters of a hike is historically rare. No cut is the base case; the 12/8–9 meeting is the pivot. |
+| D10 | **CoreWeave spread stays > 800bp or the credit is restructured** | **85%** | Highest-conviction call on the card: 1,344bp, +499bp in 180 days, facilities repricing +325bp, access-impaired. Nothing in the measured set points to a refinancing window opening. |
+| D11 | A **named federal AI-sector programme** by 2027-05-26 | **20%** | Requires a visible credit event first; stress is fringe-level. |
+| D12 | Broad dollar **> 126.0** | **40%** | +1.9% in six months inside a hike cycle is not the base case when the long end is rallying. |
+
+**What I would be wrong about, stated in advance.** The rows where I am most
+likely to be miscalibrated are D4 (n=13) and D9 (no market-implied input — that
+30% is the weakest number here). If HY OAS clears 4.50% before February, the
+whole cascade — D7 through D11 — moves up together, because those claims are
+conditional on each other rather than independent, as Gurney noted.
+
+**The one line I would defend hardest:** D10. It is the only forecast on this card
+resting on a level, a trend, and a financing structure measured on the same name
+in the same window.
