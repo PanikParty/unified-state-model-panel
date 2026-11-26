@@ -41,3 +41,7 @@ CDS spreads for the AI-infrastructure pool, §13 item 11/4) need either a paid
 data subscription or a specific resourcing decision from Alex — scoped
 honestly in `data_sources.md` and `ROADMAP.md` rather than faked with public
 proxies dressed up as the real thing.
+## Prediction register
+
+Alex's 2026-11-26 macro thesis is filed as a dated, scored artifact:
+[docs/prediction-register-2026-11-26.md](docs/prediction-register-2026-11-26.md) — eight claims, each with an observable, a fixed threshold, a score date and a falsifier. Baselines measured from FRED the same day.
