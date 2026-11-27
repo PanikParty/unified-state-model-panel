@@ -56,3 +56,39 @@ card would fail and the criteria would be measuring luck rather than skill.
 The instrument improving, a cleaner process, a well-argued miss — none of it
 counts as success against the rules above. Outcome is the test. The process
 claims were the *method*; they are not the *result*.
+
+---
+
+## Amendment A1 — the hit-rate bar was wrong, and my own card proves it
+
+**Found by applying the criteria to myself before applying them to anyone else.**
+
+My twelve claims carry probabilities 60, 75, 55, 55, 60, 35, 35, 35, 30, 85, 20,
+40. Summed, the **expected hit count is 5.85 of 12 — a 48.8% hit rate.** That is
+below the ≥55% success bar this document set an hour earlier.
+
+The arithmetic is not a problem with the card. It is a defect in the **metric**:
+
+> **Raw hit rate punishes honesty.** A forecaster who correctly states a 20%
+> claim and a 30% claim will lose those cells most of the time, and be scored
+> as a worse forecaster than one who only files near-certainties. A card of
+> twelve 90% calls that lands nine scores 75%; a calibrated card of wide
+> probabilities scores 49% with the same skill.
+
+Rewarding that would push every card toward safe claims — the exact opposite of
+what these cards are for.
+
+### The corrected test
+
+- **Primary: calibration error.** Realised hit rate against stated mean
+  probability, in percentage points. A card is good when those two numbers
+  agree. This is the measure that cannot be gamed by filing only certainties.
+- **Secondary: hit rate**, reported but not decisive on its own.
+- **Unchanged: error correlation.** Three cards failing *together* still indicts
+  the instrument and still triggers the stronger failure rule.
+- **Shutdown condition, restated:** all three cards < 50% hits **and** mean
+  calibration error > 25 points **and** error correlation > 0.6.
+
+A card can now fail by being wrong (calibration error), by being lucky in the
+wrong direction (calibration error), or by being right together with everyone
+else (correlation). It cannot fail simply for having stated honest uncertainty.
